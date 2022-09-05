@@ -7,6 +7,7 @@ const loadData = async (city) => {
 };
 
 const displayInfo = (data) => {
+  console.log(data);
   const url = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
   const icon = document.getElementById('weather-icon');
   icon.setAttribute('src', url);
@@ -19,6 +20,9 @@ const displayInfo = (data) => {
 
   const condition = document.getElementById("condition");
   condition.innerText = data.weather[0].main;
+
+  const realFeel = document.getElementById("real-feel");
+  realFeel.innerText = data.main.feels_like;
 };
 
 const search_process = () => {
